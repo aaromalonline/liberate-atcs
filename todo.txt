@@ -1,3 +1,12 @@
 - power indicator bug : OFF before closing window (when ON on close, next restart shows OFF but keyboard's working as ON)
 - msg to speech button
 - emergency alert (SOS) button
+
+check
+activate venv <br>
+xhost +SI:localuser:$USER <br>
+python3 ./assets/gui.py <br>
+
+![](./assets/image.png)
+
+
