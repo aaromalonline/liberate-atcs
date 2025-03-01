@@ -1,5 +1,5 @@
-activate venv
-xhost +SI:localuser:$USER
-python3 ./assets/gui.py
+activate venv <br>
+xhost +SI:localuser:$USER <br>
+python3 ./assets/gui.py <br>
 
 ![](./assets/image.png)
