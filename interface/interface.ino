@@ -47,9 +47,9 @@ void loop() {
             lastPressTime = now;
 
             if (isMeasuring) {
-                Serial.println("\n[INFO] System ON: Checking Threshold...");
+                Serial.println("ON");
             } else {
-                Serial.println("\n[INFO] System OFF: Stopping scan.");
+                Serial.println("OFF");
             }
         }
     }
