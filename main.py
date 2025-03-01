@@ -100,21 +100,21 @@ class MuscleKeyboard(QWidget):
         if self.selecting_row:
             self.current_row = (self.current_row + 1) % len(keyboard)  # Cycle through rows
         else:
-            self.current_col = (self.current_col + 1) % (len(keyboard[self.current_row]) - 1)  # Skip last column (Skip button)
+            self.current_col = (self.current_col + 1) % len(keyboard[self.current_row])  # Include Skip button
         self.update_highlight()
 
     def confirm_selection(self):
         """Triggered when a muscle twitch is detected"""
         if self.selecting_row:
-            if self.current_col == len(keyboard[self.current_row]) - 1:  # If Skip is selected
-                self.current_row = (self.current_row + 1) % len(keyboard)  # Skip to next row
-            else:
-                self.selecting_row = False  # Switch to column selection
-                self.current_col = 0  # Reset column selection
+            self.selecting_row = False  # Switch to column selection
+            self.current_col = 0  # Reset column selection
         else:
             selected_key = keyboard[self.current_row][self.current_col]
-            self.type_key(selected_key)
-            self.selecting_row = True  # Reset to row selection
+            if selected_key == 'Skip':
+                self.selecting_row = True  # Return to row selection
+            else:
+                self.type_key(selected_key)
+                self.selecting_row = True  # Reset to row selection after key selection
         self.update_highlight()
 
     def type_key(self, key):
@@ -128,7 +128,7 @@ class MuscleKeyboard(QWidget):
         elif key == '⏎':
             self.typed_message += '\n'  # New line
             pyautogui.press('enter')
-        elif key != 'Skip':
+        else:
             self.typed_message += key
             pyautogui.write(key)
         self.display_label.setText(f"Message: {self.typed_message}")
