@@ -1,3 +1,0 @@
-activate venv
-xhost +SI:localuser:$USER
-python3 ./backup/gui.py

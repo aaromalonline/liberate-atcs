@@ -5,7 +5,7 @@
 #define BUTTON_PIN 15  // Button to toggle detection
 
 float restBaseline = 0, twitchBaseline = 0, threshold = 0;
-volatile bool isMeasuring = false;  // Toggle statecstatec
+volatile bool isMeasuring = false;  // Toggle state
 Preferences preferences;
 
 void IRAM_ATTR toggleMeasurement() {
