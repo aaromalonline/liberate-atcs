@@ -2,20 +2,32 @@
 #include <Preferences.h>
 
 #define ADXL345_ADDR 0x53
-#define BUTTON_PIN 15  // Button to toggle detection
+#define BUTTON_PIN 15  // Push button to start/stop scanning
 
 float restBaseline = 0, twitchBaseline = 0, threshold = 0;
 volatile bool isMeasuring = false;  // Toggle state
+volatile unsigned long lastPressTime = 0;  // For debounce
 Preferences preferences;
 
 void IRAM_ATTR toggleMeasurement() {
-    isMeasuring = !isMeasuring;  // Toggle flag
+    unsigned long now = millis();
+    if (now - lastPressTime > 200) {  // 200ms debounce time
+        isMeasuring = !isMeasuring;
+        lastPressTime = now;
+
+        if (isMeasuring) {
+            Serial.println("\n[INFO] System ON: Checking Threshold...");
+            checkThreshold();
+        } else {
+            Serial.println("\n[INFO] System OFF: Stopping scan.");
+        }
+    }
 }
 
 void setup() {
+    delay(100);  // Stabilize startup
     Serial.begin(115200);
-    delay(500);  // Allow Serial to initialize fully
-    Serial.println("\nStarting...");
+    Serial.println("\nSystem Booting...");
 
     Wire.begin(); // ESP32 default I2C pins (SDA=21, SCL=22)
 
@@ -25,53 +37,55 @@ void setup() {
     Wire.write(8); // Enable measurement mode
     Wire.endTransmission();
 
-    // Load saved values
-    preferences.begin("adxl345", false);
-    restBaseline = preferences.getFloat("restBaseline", 0);
-    twitchBaseline = preferences.getFloat("twitchBaseline", 0);
-    threshold = preferences.getFloat("threshold", 0);
-
-    Serial.flush(); // Ensure clean output
-
-    if (threshold > 0) {  
-        Serial.println("Threshold found: " + String(threshold, 2));
-    } else {  
-        Serial.println("No valid threshold found. Recording new baselines...");
-        recordBaselines();
-    }
-
     // Configure button as input with interrupt
-    pinMode(BUTTON_PIN, INPUT_PULLDOWN);
-    attachInterrupt(BUTTON_PIN, toggleMeasurement, RISING);
+    pinMode(BUTTON_PIN, INPUT_PULLUP);
+    attachInterrupt(BUTTON_PIN, toggleMeasurement, FALLING);
 }
 
 void loop() {
     if (!isMeasuring) return; // Stop detection when isMeasuring = false
 
     float resultantG = getAcceleration();
-    Serial.println(resultantG > threshold ? "1" : "0"); // Convert to binary twitch detection
-    delay(1000);
+    if (resultantG > threshold) Serial.println("1");  // Only print when twitch is detected
+
+    delay(500);
+}
+
+void checkThreshold() {
+    preferences.begin("adxl345", false);
+    threshold = preferences.getFloat("threshold", 0);
+    preferences.end();
+
+    if (threshold > 0) {
+        Serial.println("[INFO] Threshold Found: " + String(threshold, 2));
+    } else {
+        Serial.println("[INFO] No Threshold Found. Recording...");
+        recordBaselines();
+    }
 }
 
 void recordBaselines() {
-    Serial.println("Hold still to record Rest Baseline...");
+    Serial.println("[INFO] Hold still to record Rest Baseline...");
     delay(3000);
     restBaseline = getAverageAcceleration();
 
-    Serial.println("Twitch now to record Twitch Baseline...");
+    Serial.println("[INFO] Twitch now to record Twitch Baseline...");
     delay(3000);
     twitchBaseline = getAverageAcceleration();
 
     // Calculate and save threshold
     threshold = (restBaseline + twitchBaseline) / 2;
+    
+    preferences.begin("adxl345", false);
     preferences.putFloat("restBaseline", restBaseline);
     preferences.putFloat("twitchBaseline", twitchBaseline);
     preferences.putFloat("threshold", threshold);
+    preferences.end();
 
-    Serial.println("New baselines and threshold saved!");
-    Serial.print("Rest Baseline: "); Serial.println(restBaseline, 2);
-    Serial.print("Twitch Baseline: "); Serial.println(twitchBaseline, 2);
-    Serial.print("Threshold: "); Serial.println(threshold, 2);
+    Serial.println("[INFO] Threshold Saved!");
+    Serial.print("[INFO] Rest Baseline: "); Serial.println(restBaseline, 2);
+    Serial.print("[INFO] Twitch Baseline: "); Serial.println(twitchBaseline, 2);
+    Serial.print("[INFO] Threshold: "); Serial.println(threshold, 2);
 }
 
 float getAcceleration() {
