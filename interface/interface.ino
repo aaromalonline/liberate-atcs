@@ -5,23 +5,15 @@
 #define BUTTON_PIN 15  // Push button to start/stop scanning
 
 float restBaseline = 0, twitchBaseline = 0, threshold = 0;
-volatile bool isMeasuring = false;  // Toggle state
-volatile unsigned long lastPressTime = 0;  // For debounce
+volatile bool buttonPressed = false;  // Flag for button press
+bool isMeasuring = false;  // Toggle state
+bool twitchActive = false;  // Edge detection for twitch
+unsigned long lastPressTime = 0;  // For debounce
 Preferences preferences;
 
-void IRAM_ATTR toggleMeasurement() {
-    unsigned long now = millis();
-    if (now - lastPressTime > 200) {  // 200ms debounce time
-        isMeasuring = !isMeasuring;
-        lastPressTime = now;
-
-        if (isMeasuring) {
-            Serial.println("\n[INFO] System ON: Checking Threshold...");
-            checkThreshold();
-        } else {
-            Serial.println("\n[INFO] System OFF: Stopping scan.");
-        }
-    }
+// Interrupt Service Routine (ISR) - Avoid heavy tasks inside ISR
+void IRAM_ATTR buttonISR() {
+    buttonPressed = true;  // Set flag instead of modifying state directly
 }
 
 void setup() {
@@ -37,18 +29,46 @@ void setup() {
     Wire.write(8); // Enable measurement mode
     Wire.endTransmission();
 
-    // Configure button as input with interrupt
+    // Configure button as input with internal pull-up resistor
     pinMode(BUTTON_PIN, INPUT_PULLUP);
-    attachInterrupt(BUTTON_PIN, toggleMeasurement, FALLING);
+    attachInterrupt(BUTTON_PIN, buttonISR, FALLING);  // Detects press
+
+    // Load threshold from NVS
+    checkThreshold();
 }
 
 void loop() {
+    // Handle button press event outside ISR
+    if (buttonPressed) {
+        buttonPressed = false;  // Reset flag
+        unsigned long now = millis();
+        if (now - lastPressTime > 200) {  // 200ms debounce
+            isMeasuring = !isMeasuring;
+            lastPressTime = now;
+
+            if (isMeasuring) {
+                Serial.println("\n[INFO] System ON: Checking Threshold...");
+            } else {
+                Serial.println("\n[INFO] System OFF: Stopping scan.");
+            }
+        }
+    }
+
     if (!isMeasuring) return; // Stop detection when isMeasuring = false
 
     float resultantG = getAcceleration();
-    if (resultantG > threshold) Serial.println("1");  // Only print when twitch is detected
 
-    delay(500);
+    // Twitch detection with edge filtering
+    if (resultantG > threshold) {
+        if (!twitchActive) {  // Only print "1" once per twitch
+            Serial.println("1");
+            twitchActive = true;  // Set twitch as active
+        }
+    } else {
+        twitchActive = false;  // Reset when below threshold
+    }
+
+    delay(100);  // Adjust delay for responsiveness
 }
 
 void checkThreshold() {
