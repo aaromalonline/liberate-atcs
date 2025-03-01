@@ -7,16 +7,15 @@ from PyQt5.QtCore import QTimer, QThread, pyqtSignal
 
 # Define keyboard layout
 keyboard = [
-    ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
-    ['K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'],
-    ['U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4'],
-    ['5', '6', '7', '8', '9', '0', '␣', '⌫', '⏎', '.']
+    ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'Skip'],
+    ['K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'Skip'],
+    ['U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', 'Skip'],
+    ['5', '6', '7', '8', '9', '0', '␣', '⌫', '⏎', '.', 'Skip']
 ]
 
 # Define serial port (Update this based on your system)
 SERIAL_PORT = "/dev/ttyUSB0"
 BAUD_RATE = 115200
-
 
 # Background Thread for Twitch Detection
 class TwitchDetector(QThread):
@@ -45,7 +44,6 @@ class TwitchDetector(QThread):
         """Send RESET command to Arduino for recalibration"""
         self.ser.write(b"RESET\n")
         print("🔄 Resetting baseline values...")
-
 
 # Main GUI Class
 class MuscleKeyboard(QWidget):
@@ -78,7 +76,7 @@ class MuscleKeyboard(QWidget):
 
         # Display panel for typed message
         self.display_label = QLabel("Message: ", self)
-        self.layout.addWidget(self.display_label, 0, 0, 1, 10)  # Spanning 10 columns
+        self.layout.addWidget(self.display_label, 0, 0, 1, 11)  # Spanning 11 columns
 
         # Keyboard buttons
         self.buttons = []
@@ -93,7 +91,7 @@ class MuscleKeyboard(QWidget):
         # Reset Baseline Button
         self.reset_button = QPushButton("Reset Baseline")
         self.reset_button.clicked.connect(self.reset_baseline)
-        self.layout.addWidget(self.reset_button, len(keyboard) + 1, 0, 1, 10)
+        self.layout.addWidget(self.reset_button, len(keyboard) + 1, 0, 1, 11)
 
         self.update_highlight()
 
@@ -102,14 +100,17 @@ class MuscleKeyboard(QWidget):
         if self.selecting_row:
             self.current_row = (self.current_row + 1) % len(keyboard)  # Cycle through rows
         else:
-            self.current_col = (self.current_col + 1) % len(keyboard[self.current_row])  # Cycle through columns
+            self.current_col = (self.current_col + 1) % (len(keyboard[self.current_row]) - 1)  # Skip last column (Skip button)
         self.update_highlight()
 
     def confirm_selection(self):
         """Triggered when a muscle twitch is detected"""
         if self.selecting_row:
-            self.selecting_row = False  # Switch to column selection
-            self.current_col = 0  # Reset column selection
+            if self.current_col == len(keyboard[self.current_row]) - 1:  # If Skip is selected
+                self.current_row = (self.current_row + 1) % len(keyboard)  # Skip to next row
+            else:
+                self.selecting_row = False  # Switch to column selection
+                self.current_col = 0  # Reset column selection
         else:
             selected_key = keyboard[self.current_row][self.current_col]
             self.type_key(selected_key)
@@ -127,7 +128,7 @@ class MuscleKeyboard(QWidget):
         elif key == '⏎':
             self.typed_message += '\n'  # New line
             pyautogui.press('enter')
-        else:
+        elif key != 'Skip':
             self.typed_message += key
             pyautogui.write(key)
         self.display_label.setText(f"Message: {self.typed_message}")
@@ -152,7 +153,6 @@ class MuscleKeyboard(QWidget):
         """Ensure the sensor thread is stopped when the GUI is closed"""
         self.twitch_detector.stop()
         event.accept()
-
 
 # Run GUI Application
 if __name__ == "__main__":
