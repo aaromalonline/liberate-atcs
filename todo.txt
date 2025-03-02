@@ -1,6 +1,7 @@
 - power indicator bug : OFF before closing window (when ON on close, next restart shows OFF but keyboard's working as ON)
 - msg to speech button
 - emergency alert (SOS) button
+- landing page for liberate
 
 check
 activate venv <br>

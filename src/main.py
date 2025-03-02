@@ -2,12 +2,14 @@ import sys
 import serial
 import time
 import pyautogui
+import pyttsx3
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QGridLayout, QPushButton, QVBoxLayout
 from PyQt5.QtCore import QTimer, QThread, pyqtSignal
 from PyQt5.QtGui import QColor, QPainter
 
-# Define keyboard layout
+# Define keyboard layout with Speak, SOS, and Skip button
 keyboard = [
+    ['Speak', 'SOS', 'Skip'],
     ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'Skip'],
     ['K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'Skip'],
     ['U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', 'Skip'],
@@ -59,11 +61,12 @@ class SerialThread(QThread):
 class MuscleKeyboard(QWidget):
     def __init__(self):
         super().__init__()
-
         self.current_row = 0
         self.current_col = 0
         self.selecting_row = True
         self.typed_message = ""
+        self.speech_engine = pyttsx3.init()
+        self.buttons = []
 
         self.initUI()
         
@@ -91,12 +94,13 @@ class MuscleKeyboard(QWidget):
         self.layout = QGridLayout()
         main_layout.addLayout(self.layout)
 
-        self.buttons = []
         for row_idx, row in enumerate(keyboard):
             button_row = []
             for col_idx, key in enumerate(row):
                 button = QPushButton(key)
-                self.layout.addWidget(button, row_idx + 1, col_idx)
+                if key in ["Speak", "SOS"]:
+                    button.setStyleSheet("background-color: lightblue;")
+                self.layout.addWidget(button, row_idx, col_idx)
                 button_row.append(button)
             self.buttons.append(button_row)
 
@@ -105,6 +109,16 @@ class MuscleKeyboard(QWidget):
         main_layout.addWidget(self.reset_button)
 
         self.update_highlight()
+
+    def update_highlight(self):
+        for row_idx, row in enumerate(self.buttons):
+            for col_idx, button in enumerate(row):
+                if self.selecting_row and row_idx == self.current_row:
+                    button.setStyleSheet("background-color: yellow;")
+                elif not self.selecting_row and row_idx == self.current_row and col_idx == self.current_col:
+                    button.setStyleSheet("background-color: orange;")
+                else:
+                    button.setStyleSheet("")
 
     def move_selection(self):
         if self.selecting_row:
@@ -120,6 +134,12 @@ class MuscleKeyboard(QWidget):
         else:
             selected_key = keyboard[self.current_row][self.current_col]
             if selected_key == 'Skip':
+                self.selecting_row = True
+            elif selected_key == 'Speak':
+                self.speak_message()
+                self.selecting_row = True
+            elif selected_key == 'SOS':
+                self.sos_alert()
                 self.selecting_row = True
             else:
                 self.type_key(selected_key)
@@ -141,15 +161,13 @@ class MuscleKeyboard(QWidget):
             pyautogui.write(key)
         self.display_label.setText(f"Message: {self.typed_message}")
 
-    def update_highlight(self):
-        for row_idx, row in enumerate(self.buttons):
-            for col_idx, button in enumerate(row):
-                if self.selecting_row and row_idx == self.current_row:
-                    button.setStyleSheet("background-color: yellow;")
-                elif not self.selecting_row and row_idx == self.current_row and col_idx == self.current_col:
-                    button.setStyleSheet("background-color: red;")
-                else:
-                    button.setStyleSheet("")
+    def speak_message(self):
+        if self.typed_message:
+            self.speech_engine.say(self.typed_message)
+            self.speech_engine.runAndWait()
+
+    def sos_alert(self):
+        pyautogui.alert("SOS Alert Triggered!")
 
     def reset_baseline(self):
         self.serial_thread.ser.write(b"RESET\n")
