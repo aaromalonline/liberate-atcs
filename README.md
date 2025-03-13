@@ -5,25 +5,26 @@
 
 **Liberate** is a muscle movement detection system that converts subtle muscle activity into control signals. By detecting slight facial or body muscle movements, the system enables users to control devices like a **computer cursor, wheelchair, or keyboard**. This innovation offers an intuitive, hands-free interface, enhancing accessibility and communication for individuals with limited mobility.
 
+UPDATE STAGE - Prototype
+
 [Presentation](https://bit.ly/3XrDsM3)
-
-## 🚀 Features
-- Detects subtle muscle movements (facial/body)
-- Converts movement signals into control actions
-- Hands-free interaction for enhanced accessibility
-- Can control a **computer cursor, wheelchair, or keyboard**
-- Affordable and minimalistic design
-
-### 👀 Modes of operation & Features of Ver1.0 (Comming soon..)
-- Keyboard interface & control using muscle twitches
-- specific command control having dedicated operations 
-- Speech synthesizer to vocalize the text message generated using a TTS engine
 
 ## 🛠️ Technologies Used
 - **Python** for signal processing & control logic
-- **Arduino** for sensor data acquisition (I2C Interface)
-- **Accelerometer/Tap Sensor** for muscle movement detection
-- **Serial Communication** for real-time data transfer
+- **ESP32** for sensor data acquisition via I2C and encoding of muscle twitches to control signals
+- **ADXL345 Digital Accelerometer/Tap Sensor** for muscle movement detection (also IR reflexive sensor)
+
+## 🚀 Features
+- Muscle twitch detector/encoder using ADXL345 digital accelerometer & ESP32 to convert muscle twitches to control signals/clicks
+- Muscle controlled keyboard with QWERTY & Morse mode available as a PyQt5 python desktop
+- Built-in SOS & speech synthesis using a specch engine like gTTS
+- A minimal, cost-effective design for real-world usability
+
+💻𝐇𝐨𝐰 𝐈𝐭 𝐖𝐨𝐫𝐤𝐬:
+ 🔹 Sensor + Encoder - When ON, The ADXL345 accelerometer records muscle twitches as 3-axis accelerations, which are encoded into clicks (0/1) using baseline calibration and filtering algorithms.
+ 🔹 Data Transmission - Data is sent serially/wirelessly via ESP32 to the python application, where the user can control a keyboard interface using the decoded twitch clicks.
+ 🔹 Speech Synthesiser - The typed message can be converted into speech output using speech engines like gTTS.
+ 🔹 The system operates serially or wirelessly utilising I2C communication.
 
 ## 📷 Project Image
 (Add images or screenshots of your project here)
