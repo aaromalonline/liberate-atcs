@@ -12,6 +12,8 @@
 
 [Presentation](https://bit.ly/3XrDsM3)
 
+𝒎𝒂𝒅𝒆 𝒘𝒊𝒕𝒉 ❤️ 𝑻𝒆𝒂𝒎 𝑳𝒖𝒎𝒆𝒏 : [Aaromal A](https://www.linkedin.com/in/aaromalonline/), [Deeraj P Menon](https://www.linkedin.com/in/deeraj-p-menon-aa4b5231b/)
+
 ## 🛠️ Technologies Used
 - **Python** for signal processing & control logic
 - **ESP32** for sensor data acquisition via I2C and encoding of muscle twitches to control signals
