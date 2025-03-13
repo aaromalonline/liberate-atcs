@@ -13,8 +13,8 @@
 📢 [Presentation](https://www.canva.com/design/DAGgiwwJF50/0pNmzq6Z0drq8x91x3Nejg/view)
 
 𝒎𝒂𝒅𝒆 𝒘𝒊𝒕𝒉 ❤️ 𝑻𝒆𝒂𝒎 𝑳𝒖𝒎𝒆𝒏 :
-![Author](https://img.shields.io/badge/Author-Aaromal%20A-purple.svg)
-![Author](https://img.shields.io/badge/Author-Deeraj%20P%20Menon-purple.svg)
+[![Contributors](https://img.shields.io/badge/Contributors-Aaromal%20A%20%26%20Deeraj%20P%20Menon-purple.svg)](https://github.com/aaromalonline)
+
 
 ## 🛠️ Technologies Used
 - **Python** for signal processing & control logic
