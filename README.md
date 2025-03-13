@@ -26,7 +26,8 @@
 - The system operates serially or wirelessly utilising **I2C communication**.
 
 ## 📷 Project Image
-(Add images or screenshots of your project here)
+![Alt text](assets/p1.jpeg)
+![Alt text](images/p2.jpeg)
 
 ## 📥 Installation & Setup
 1. Clone this repository:
