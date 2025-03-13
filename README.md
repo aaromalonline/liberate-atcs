@@ -27,7 +27,7 @@
 
 ## 📷 Project Image
 ![Alt text](assets/p1.jpeg)
-![Alt text](images/p2.jpeg)
+![Alt text](assets/p2.jpeg)
 
 ## 📥 Installation & Setup
 1. Clone this repository:
