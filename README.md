@@ -10,7 +10,7 @@
 
 **Liberate** is a muscle movement detection system that converts subtle muscle activity into control signals. By detecting slight facial or body muscle movements, the system enables users to control devices like a **computer cursor, wheelchair, or keyboard**. This innovation offers an intuitive, hands-free interface, enhancing accessibility and communication for individuals with limited mobility.
 
-[Presentation](https://bit.ly/3XrDsM3)
+📢 **Check out the presentation:** [View on Canva](https://www.canva.com/design/DAGgiwwJF50/0pNmzq6Z0drq8x91x3Nejg/view)
 
 𝒎𝒂𝒅𝒆 𝒘𝒊𝒕𝒉 ❤️ 𝑻𝒆𝒂𝒎 𝑳𝒖𝒎𝒆𝒏 : [Aaromal A](https://www.linkedin.com/in/aaromalonline/), [Deeraj P Menon](https://www.linkedin.com/in/deeraj-p-menon-aa4b5231b/)
 
