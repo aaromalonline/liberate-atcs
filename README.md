@@ -20,10 +20,10 @@
 - **Built-in SOS & speech synthesis** using a specch engine like gTTS
 - **A minimal, cost-effective design** for real-world usability
 
-💻 𝐇𝐨𝐰 𝐈𝐭 𝐖𝐨𝐫𝐤𝐬:
+## 💻 How it works? 
 - **Sensor + Encoder** - When ON, The ADXL345 accelerometer records muscle twitches as 3-axis accelerations, which are encoded into clicks (0/1) using baseline calibration and filtering algorithms.
-- **Data Transmission** - Data is sent serially/wirelessly via ESP32 to the python application, where the user can control a keyboard interface using the decoded twitch clicks.
-- The system operates serially or wirelessly utilising **I2C communication**.
+- **Data Transmission** - Data is sent serially/wirelessly via ESP32 to the python application using I2C, where the user can control a keyboard interface using the decoded twitch clicks.
+- **Dynamic Keyboard Interface in PyQt5** - Provides a moving highlight bar which spans across the rows of keyboard alternatively allowing the user to twitch to select a row and to select the key using the next twitch on circulating highlight.
 
 ## 📷 Project Image
 <img src="assets/p1.jpeg" width="45%"> <img src="assets/p2.jpeg" width="45%">
