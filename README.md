@@ -1,6 +1,6 @@
 # ![](./assets/liberatelogo.jpeg)
 
-# **Liberate**  
+# **Liberate : mACAT - Minimal Assistive Context-Aware Toolkit**  
 ### *Freedom Beyond Barriers*  
 
 [![Repository Status](https://img.shields.io/badge/Repository%20Status-Prototype-dark%20green.svg)](https://github.com/aaromalonline/liberate)
@@ -8,13 +8,14 @@
 [![Latest Release](https://img.shields.io/badge/Latest%20Release-11%20Feb%202025-yellow.svg)](https://github.com/aaromalonline/liberate)
 <a href="https://github.com/aaromalonline/liberate/blob/master/LICENSE"><img alt="License" src="http://img.shields.io/:license-mit-blue.svg?style=flat-square?style=flat-square" /></a>
 
-**Liberate** is a muscle movement detection system that converts subtle muscle activity into control signals. By detecting slight facial or body muscle movements, the system enables users to control devices like a **computer cursor, wheelchair, or keyboard**. This innovation offers an intuitive, hands-free interface, enhancing accessibility and communication for individuals with limited mobility.
+**Liberate** is a muscle twitch communication system that converts subtle muscle activity into control signals. By detecting slight facial or body muscle movements, the system enables users to control devices like a **computer cursor, wheelchair, or keyboard**. This innovation offers an intuitive, hands-free interface, enhancing accessibility and communication for individuals with limited mobility. The project aims to bridge the gap between physical limitations and digital interaction, offering an intuitive and real-time control solution.
 
 📢 [Presentation](https://www.canva.com/design/DAGgiwwJF50/0pNmzq6Z0drq8x91x3Nejg/view)
 
 𝒎𝒂𝒅𝒆 𝒘𝒊𝒕𝒉 ❤️ 𝑻𝒆𝒂𝒎 𝑳𝒖𝒎𝒆𝒏 :
 [![Contributor: Aaromal A](https://img.shields.io/badge/Contributor-Aaromal%20A-purple.svg)](https://www.linkedin.com/in/aaromalonline/) [![Contributor: Deeraj P Menon](https://img.shields.io/badge/Contributor-Deeraj%20P%20Menon-purple.svg)](https://www.linkedin.com/in/deeraj-p-menon-aa4b5231b/)
 
+inspired by [Intel's ACAT](https://www.intel.com/content/www/us/en/developer/tools/open/acat/overview.html) 
 
 
 ## 🛠️ Technologies Used
