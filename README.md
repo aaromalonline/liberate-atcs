@@ -33,6 +33,7 @@ inspired by [Intel's ACAT](https://www.intel.com/content/www/us/en/developer/too
 
 ### 👀 Comming soon
 - Auto AI typing suggestions
+- UNiversal app interface 
 - More control features like browse, advanced SOS messaging etc
 - Multiple sensor inputs & Minimal hardware implimentation
 
