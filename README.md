@@ -31,9 +31,10 @@ inspired by [Intel's ACAT](https://www.intel.com/content/www/us/en/developer/too
 - **Built-in SOS & speech synthesis** using a specch engine like gTTS
 - **A minimal, cost-effective design** for real-world usability
 
-### comming soon
+### 👀 Comming soon
 - Auto AI typing suggestions
 - More control features like browse, advanced SOS messaging etc
+- Multiple sensor inputs & Minimal hardware implimentation
 
 ## 💻 How it works? 
 - **Sensor + Encoder** - When ON, The ADXL345 accelerometer records muscle twitches as 3-axis accelerations, which are encoded into clicks (0/1) using baseline calibration and filtering algorithms.
