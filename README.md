@@ -41,8 +41,9 @@ inspired by [Intel's ACAT](https://www.intel.com/content/www/us/en/developer/too
 ## 📷 Project Images
 
 <p align="center">
-  <img src="assets/p1.jpeg" width="48%" style="margin: 5px;">
-  <img src="assets/p2.jpeg" width="48%" style="margin: 5px;">
+  <img src="assets/p1.jpeg" width="32%" style="margin: 5px;">
+  <img src="assets/p2.jpeg" width="32%" style="margin: 5px;">
+  <img src="assets/p3.jpeg" width="32%" style="margin: 5px;">
 </p>
 
 ## 📥 Installation & Setup
