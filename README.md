@@ -1,4 +1,6 @@
-# ![](./assets/liberatelogo-gif.gif)
+<p align="center">
+  <img src="./assets/liberatelogo-gif.gif" alt="Liberate Logo">
+</p>
 
 # **Liberate : ATCS - Adaptive Typing & Control System**  
 ### *Freedom Beyond Barriers*  
