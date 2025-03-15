@@ -33,9 +33,10 @@
 
 ### 👀 Comming soon
 - Auto AI typing suggestions
-- UNiversal app interface 
+- Universal app interface 
 - More control features like browse, advanced SOS messaging etc
-- Multiple sensor inputs & Minimal hardware implimentation
+- Multiple enhanced sensor integration for higher accuracy
+- Minimization of hardware (via wireless communication with universal app interface)
 
 ## 💻 How it works? 
 - **Sensor + Encoder** - When ON, The ADXL345 accelerometer records muscle twitches as 3-axis accelerations, which are encoded into clicks (0/1) using baseline calibration and filtering algorithms such as edge detection & debouncing filters.
