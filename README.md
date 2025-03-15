@@ -1,6 +1,6 @@
 # ![](./assets/liberatelogo.jpeg)
 
-# **Liberate:ATCS - Adaptive Typing & Control System**  
+# **Liberate : ATCS - Adaptive Typing & Control System**  
 ### *Freedom Beyond Barriers*  
 
 [![Repository Status](https://img.shields.io/badge/Repository%20Status-Prototype-dark%20green.svg)](https://github.com/aaromalonline/liberate)
