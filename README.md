@@ -1,6 +1,6 @@
 # ![](./assets/liberatelogo.jpeg)
 
-# **Liberate : mACAT - Minimal Assistive Context-Aware Toolkit**  
+# **Liberate:ATCS - Adaptive Typing & Control System**  
 ### *Freedom Beyond Barriers*  
 
 [![Repository Status](https://img.shields.io/badge/Repository%20Status-Prototype-dark%20green.svg)](https://github.com/aaromalonline/liberate)
@@ -8,7 +8,7 @@
 [![Latest Release](https://img.shields.io/badge/Latest%20Release-11%20Feb%202025-yellow.svg)](https://github.com/aaromalonline/liberate)
 <a href="https://github.com/aaromalonline/liberate/blob/master/LICENSE"><img alt="License" src="http://img.shields.io/:license-mit-blue.svg?style=flat-square?style=flat-square" /></a>
 
-**Liberate** is a muscle twitch communication system that converts subtle muscle activity into control signals. By detecting slight facial or body muscle movements, the system enables users to control devices like a **computer cursor, wheelchair, or keyboard**. This innovation offers an intuitive, hands-free interface, enhancing accessibility and communication for individuals with limited mobility. The project aims to bridge the gap between physical limitations and digital interaction, offering an intuitive and real-time control solution.
+**Liberate:ATCS** is a muscle-twitch-based communication system that translates subtle muscle movements into control signals through an adaptive typing interface. By detecting slight facial or body muscle activity, it enables users to operate devices such as a computer cursor, wheelchair, or keyboard. This innovative, hands-free solution enhances accessibility and communication for individuals with limited mobility, bridging the gap between physical limitations and digital interaction. Designed for real-time responsiveness and ease of use, Liberate: ATCS offers an intuitive and efficient alternative for assistive control.
 
 📢 [Presentation](https://www.canva.com/design/DAGgiwwJF50/0pNmzq6Z0drq8x91x3Nejg/view)
 
@@ -28,6 +28,10 @@ inspired by [Intel's ACAT](https://www.intel.com/content/www/us/en/developer/too
 - **Muscle controlled keyboard** with QWERTY & Morse mode available as a PyQt5 python desktop
 - **Built-in SOS & speech synthesis** using a specch engine like gTTS
 - **A minimal, cost-effective design** for real-world usability
+
+### comming soon
+- Auto AI typing suggestions
+- More control features like browse, advanced SOS messaging etc
 
 ## 💻 How it works? 
 - **Sensor + Encoder** - When ON, The ADXL345 accelerometer records muscle twitches as 3-axis accelerations, which are encoded into clicks (0/1) using baseline calibration and filtering algorithms.
