@@ -60,7 +60,8 @@ inspired by [Intel's ACAT](https://www.intel.com/content/www/us/en/developer/too
    ```sh
    pip install -r ./src/requirements.txt
    ```
-3. Acquire hardware (comming soon), Upload arduino code to hardware & run main script
+3. Acquire/build hardware with the circuit diagram above and upload arduino code from ./interface/interface.ino to ESP32 & run main script by toggling the power switch ON
+   (Note to toggle OFF the power button after usage to ensure smooth reading)
    ```sh
    python main.py
    ```
