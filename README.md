@@ -12,7 +12,9 @@
 
 **Liberate:ATCS** is a muscle-twitch-based communication system that translates subtle muscle movements into control signals through an adaptive typing interface. By detecting slight facial or body muscle activity, it enables users to operate devices such as a computer cursor, wheelchair, or keyboard. This innovative, hands-free solution enhances accessibility and communication for individuals with limited mobility, bridging the gap between physical limitations and digital interaction. Designed for real-time responsiveness and ease of use, Liberate: ATCS offers an intuitive and efficient alternative for assistive control.
 
-📢 [Presentation](https://www.canva.com/design/DAGgiwwJF50/0pNmzq6Z0drq8x91x3Nejg/view)
+**Our Vision :** Breaking barriers in digital accessibility by redefining how individuals with limited mobility communicate and control technology.
+
+***[See presentation](https://www.canva.com/design/DAGgiwwJF50/0pNmzq6Z0drq8x91x3Nejg/view)***
 
 𝒎𝒂𝒅𝒆 𝒘𝒊𝒕𝒉 ❤️ 𝑻𝒆𝒂𝒎 𝑳𝒖𝒎𝒆𝒏 :
 [![Contributor: Aaromal A](https://img.shields.io/badge/Contributor-Aaromal%20A-purple.svg)](https://www.linkedin.com/in/aaromalonline/) [![Contributor: Deeraj P Menon](https://img.shields.io/badge/Contributor-Deeraj%20P%20Menon-purple.svg)](https://www.linkedin.com/in/deeraj-p-menon-aa4b5231b/)
