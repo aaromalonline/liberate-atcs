@@ -40,7 +40,10 @@ inspired by [Intel's ACAT](https://www.intel.com/content/www/us/en/developer/too
 
 ## 📷 Project Images
 
-|  ![Image 1](assets/p1.jpeg)  |  ![Image 2](assets/p2.jpeg)  |
+<p align="center">
+  <img src="assets/p1.jpeg" width="48%" style="margin: 5px;">
+  <img src="assets/p2.jpeg" width="48%" style="margin: 5px;">
+</p>
 
 ## 📥 Installation & Setup
 1. Clone this repository:
