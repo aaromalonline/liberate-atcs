@@ -1,4 +1,4 @@
-# ![](./assets/liberatelogo.jpeg)
+# ![](./assets/liberatelogo-gif.gif)
 
 # **Liberate : ATCS - Adaptive Typing & Control System**  
 ### *Freedom Beyond Barriers*  
