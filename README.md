@@ -17,7 +17,7 @@
 𝒎𝒂𝒅𝒆 𝒘𝒊𝒕𝒉 ❤️ 𝑻𝒆𝒂𝒎 𝑳𝒖𝒎𝒆𝒏 :
 [![Contributor: Aaromal A](https://img.shields.io/badge/Contributor-Aaromal%20A-purple.svg)](https://www.linkedin.com/in/aaromalonline/) [![Contributor: Deeraj P Menon](https://img.shields.io/badge/Contributor-Deeraj%20P%20Menon-purple.svg)](https://www.linkedin.com/in/deeraj-p-menon-aa4b5231b/)
 
-inspired by [Intel's ACAT](https://www.intel.com/content/www/us/en/developer/tools/open/acat/overview.html) 
+𝒊𝒏𝒔𝒑𝒊𝒓𝒆𝒅 𝒃𝒚 [Intel's ACAT](https://www.intel.com/content/www/us/en/developer/tools/open/acat/overview.html) 
 
 
 ## 🛠️ Technologies Used
