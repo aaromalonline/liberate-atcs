@@ -38,8 +38,9 @@ inspired by [Intel's ACAT](https://www.intel.com/content/www/us/en/developer/too
 - **Data Transmission** - Data is sent serially/wirelessly via ESP32 to the python application using I2C, where the user can control a keyboard interface using the decoded twitch clicks.
 - **Dynamic Keyboard Interface in PyQt5** - Provides a moving highlight bar which spans across the rows of keyboard alternatively allowing the user to twitch to select a row and to select the key using the next twitch on circulating highlight.
 
-## 📷 Project Image
-<img src="assets/p1.jpeg" width="45%"> <img src="assets/p2.jpeg" width="45%">
+## 📷 Project Images
+
+|  ![Image 1](assets/p1.jpeg)  |  ![Image 2](assets/p2.jpeg)  |
 
 ## 📥 Installation & Setup
 1. Clone this repository:
