@@ -61,13 +61,14 @@ inspired by [Intel's ACAT](https://www.intel.com/content/www/us/en/developer/too
    pip install -r ./src/requirements.txt
    ```
 3. Acquire/build hardware with the circuit diagram above and upload arduino code from ./interface/interface.ino to ESP32 & run main script by toggling the power switch ON
-   (Note to toggle OFF the power button after usage to ensure smooth reading)
+   (Note to toggle OFF the power button after usage to ensure smooth reading).
    ```sh
    python main.py
    ```
 
 ## 📜 License
-This project is currently **proprietary**, but may be open-sourced in the future.
+Open-sourced under the MIT License for personal use. Contact us for commercial distribution <br>
+See LICENSE file for details.
 
 ## 🤝 Support
 Contributions are welcome! Feel free to submit issues or pull requests to improve the project.
