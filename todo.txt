@@ -10,4 +10,12 @@ python3 ./assets/gui.py <br>
 
 ![](./assets/image.png)
 
+____________________________________________________________
+
+STEPS TO RUN
+
+- configure python venv : python3 -m venv venv, source ./venv/bin/activate
+- upload interface code, add port permission to arduino and esp32 dev module : sudo usermod -aG dialout $USER
+- run python3 ./src/main.py while the interface code uploaded esp32 connected via a serial cable to the ubuntu pc
+- ON the push button to read the twitches from acclerometer to register click and OFF the pushbutton when closing the window
 
