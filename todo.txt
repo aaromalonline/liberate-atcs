@@ -3,9 +3,10 @@
 - emergency alert (SOS) button
 - landing page for liberate
 
-check
+check - platform : Linux 
+sudo apt install libasound2-dev for pip install simpleaudio 
 activate venv <br>
-xhost +SI:localuser:$USER <br>
+xhost +SI:localuser:$USER (pyautogui integration in native linux, wsl error, or use native windows) <br>
 python3 ./assets/gui.py <br>
 
 ![](./assets/image.png)
