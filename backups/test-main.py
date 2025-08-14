@@ -1,3 +1,5 @@
+#testing bluetooth/serial communication toggle mode
+
 import sys
 import serial
 import time
@@ -17,7 +19,7 @@ keyboard = [
 ]
 
 # Define serial port (Update this based on your system)
-SERIAL_PORT = "COM3" 
+SERIAL_PORT = "COM5" 
 BAUD_RATE = 115200
 
 # Power Indicator Widget
@@ -57,6 +59,15 @@ class SerialThread(QThread):
         self.running = False
         self.ser.close()
 
+# --- Communication Thread Factories ---
+def create_serial_thread():
+    return SerialThread()
+
+def create_bluetooth_thread():
+    # Placeholder for Bluetooth thread implementation
+    # Example: return BluetoothThread()
+    raise NotImplementedError("Bluetooth communication not implemented yet.")
+
 # Main GUI Class
 class MuscleKeyboard(QWidget):
     def __init__(self):
@@ -70,7 +81,10 @@ class MuscleKeyboard(QWidget):
 
         self.initUI()
         
-        self.serial_thread = SerialThread()
+        # --- Choose communication method here ---
+        self.serial_thread = create_serial_thread()  # Use serial by default
+        # To use Bluetooth in the future, replace with:
+        # self.serial_thread = create_bluetooth_thread()
         self.serial_thread.data_received.connect(self.handle_serial_data)
         self.serial_thread.start()
 

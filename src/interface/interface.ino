@@ -1,3 +1,5 @@
+// has to impliment serial/bluetooth toggle comm, also accelerometer/IR sensor toggle signal fns 
+
 #include <Wire.h>
 #include <Preferences.h>
 
