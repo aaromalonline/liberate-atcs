@@ -30,7 +30,8 @@
 ## 🛠️ Technologies Used
 - **Python** for signal processing & control logic
 - **ESP32** for sensor data acquisition via I2C and encoding of muscle twitches to control signals
-- **ADXL345 Digital Accelerometer/Tap Sensor** for muscle movement detection (also IR reflexive sensor)
+- **ADXL345 Digital Accelerometer/Tap Sensor** to record muscle movement using 3 axis accelerations
+- **TCRT5000 IR sensor** another input module to record muscle twitches using IR variations
 
 ## 🚀 Features
 - **Muscle twitch detector/encoder** using ADXL345 digital accelerometer & ESP32 to convert muscle twitches to control signals/clicks
@@ -45,8 +46,8 @@
 - Multiple enhanced sensor integration for higher accuracy
 - Minimization of hardware (via wireless communication with universal app interface)
 
-## 💻 How it works? 
-- **Sensor + Encoder** - When ON, The ADXL345 accelerometer records muscle twitches as 3-axis accelerations, which are encoded into clicks (0/1) using baseline calibration and filtering algorithms such as edge detection & debouncing filters.
+## 💻 How it works? Input Modules (ADXL345 & TCRT5000 IR) -> Control System (ESP32) -> Adaptive PyQT5 interface (Muscle Keyboard using Python)
+- **Sensor + Encoder** - When ON, The Input modules such as ADXL345 accelerometer records muscle twitches as 3-axis accelerations or IR variations, which are encoded into clicks (0/1) using baseline calibration and filtering algorithms such as edge detection & debouncing filters.
 - **Data Transmission** - Data is sent serially/wirelessly via ESP32 to the python application using I2C, where the user can control a keyboard interface using the decoded twitch clicks.
 - **Adaptive Keyboard Interface in PyQt5** - Provides a moving highlight bar which spans across the rows of keyboard alternatively allowing the user to twitch to select a row and to select the key using the next twitch on circulating highlight.
 
