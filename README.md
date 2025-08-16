@@ -16,7 +16,7 @@
 
 ***[Visit liberate](https://www.liberate-atcs.vercel.app)***
 ***[See presentation (old)](https://www.canva.com/design/DAGgiwwJF50/0pNmzq6Z0drq8x91x3Nejg/view)***
-***[Raw Media (BTS)](https://drive.google.com/drive/folders/16PRz2OhJrfej7ls2uXKP3qEmI2ENrzJ9?usp=sharing)***  
+***[Raw Media (BTS)](https://drive.google.com/drive/folders/16PRz2OhJrfej7ls2uXKP3qEmI2ENrzJ9?usp=sharing)***
 <a href="https://youtu.be/9NmNVjKmtew?si=ZetWL2btwo8SBQff">
   <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" width="60">
 </a>
