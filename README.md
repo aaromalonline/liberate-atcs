@@ -51,14 +51,6 @@
 - **Data Transmission** - Data is sent serially/wirelessly via ESP32 to the python application using I2C, where the user can control a keyboard interface using the decoded twitch clicks.
 - **Adaptive Keyboard Interface in PyQt5** - Provides a moving highlight bar which spans across the rows of keyboard alternatively allowing the user to twitch to select a row and to select the key using the next twitch on circulating highlight.
 
-## 📷 Project Images
-
-<p align="center">
-  <img src="assets/p1.jpeg" width="32%" style="margin: 5px;">
-  <img src="assets/p2.jpeg" width="32%" style="margin: 5px;">
-  <img src="assets/p3.jpeg" width="32%" style="margin: 5px;">
-</p>
-
 ## 📥 Installation & Setup
 1. Clone this repository:
    ```sh
