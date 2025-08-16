@@ -34,7 +34,7 @@
 - **TCRT5000 IR sensor** another input module to record muscle twitches using IR variations
 
 ## 🚀 Features
-- **Muscle twitch detector/encoder** using ADXL345 digital accelerometer & ESP32 to convert muscle twitches to control signals/clicks
+- **Muscle twitch detector/encoder** using ADXL345 digital accelerometer and TCRT5000 IR sensor & ESP32 to convert muscle twitches to control signals/clicks
 - **Muscle controlled keyboard** with QWERTY & Morse mode available as a PyQt5 python desktop
 - **Built-in SOS & speech synthesis** using a specch engine like gTTS
 - **A minimal, cost-effective design** for real-world usability
