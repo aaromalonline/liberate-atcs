@@ -67,10 +67,6 @@
    python main.py
    ```
 
-## 📜 License
-Open-sourced under the MIT License for personal use. Contact us for commercial distribution <br>
-See LICENSE file for details.
-
 ## 🤝 Support
 Contributions are welcome! Feel free to submit issues or pull requests to improve the project.
 ⭐ support us by starring the repo ⭐
